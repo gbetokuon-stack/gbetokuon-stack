@@ -159,14 +159,10 @@ const developer: Developer = {
 
 ---
 
-### 📊 ĐỒ HỌA ĐÓNG GÓP 3D ĐỘNG (3D ANIMATED CONTRIBUTION GRAPH)
+### 📊 BIỂU ĐỒ ĐÓNG GÓP HOẠT ĐỘNG (ANIMATED CONTRIBUTION GRAPH)
 
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-view.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-night-view.svg">
-    <img alt="3D Animated Contribution Graph" src="./profile-3d-contrib/profile-night-view.svg" width="100%">
-  </picture>
+  <img src="./assets/contribution-graph.svg" alt="Animated Contribution Graph" width="100%">
 </div>
 
 ---
