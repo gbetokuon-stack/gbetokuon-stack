@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Profile Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: #121215;
+      --border: #27272a;
+      --border-bright: #3f3f46;
+      --accent: #e11d48;
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 10% 40%, rgba(39, 39, 42, 0.3) 0%, transparent 40%);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    /* TOP TOOLBAR */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(18, 18, 21, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .toolbar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .toolbar-title span.badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #27272a;
+      color: #e11d48;
+      border: 1px solid #3f3f46;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .toolbar-inputs {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      background: #09090b;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+    }
+
+    .input-group label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 8px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .input-group input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: 'Fira Code', monospace;
+      font-weight: 600;
+      font-size: 0.9rem;
+      outline: none;
+      width: 160px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #e11d48;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(225, 29, 72, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #be123c;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #27272a;
+      border: 1px solid var(--border-bright);
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #3f3f46;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 960px;
+      margin: 36px auto;
+      padding: 0 20px;
+    }
+
+    .profile-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 30px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    h2, h3, h4 {
+      color: #fff;
+      margin: 28px 0 16px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    pre {
+      background: #09090b;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      overflow-x: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.88rem;
+      color: #e4e4e7;
+      line-height: 1.55;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #09090b;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    th {
+      background: #18181b;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #18181b;
+      color: #fff;
+      border: 1px solid #e11d48;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP TOOLBAR -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <span>💻 DEVELOPER PROFILE</span>
+      <span class="badge">DARK THEME</span>
+    </div>
+
+    <div class="toolbar-inputs">
+      <div class="input-group">
+        <label for="usernameInput">GITHUB USER:</label>
+        <input type="text" id="usernameInput" value="gbetokuon-stack" placeholder="Username của bạn" />
+      </div>
+      <button class="btn btn-primary" onclick="updatePreview()">🔄 Cập Nhật</button>
+      <button class="btn btn-secondary" onclick="copyMarkdown()">📋 Sao Chép README.md</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="profile-card" id="profileContent">
+
+      <div style="text-align: center;">
+        <!-- BANNER -->
+        <img id="topBanner" src="https://capsule-render.vercel.app/api?type=waving&color=0:09090b,40:18181b,80:27272a,100:09090b&height=220&section=header&text=CUONG%20ACOUSTIC&fontSize=42&fontColor=ffffff&fontAlignY=40&desc=Full-Stack%20Software%20Engineer%20%E2%80%A2%20Scalable%20Systems%20%E2%80%A2%20Clean%20Code&descSize=16&descColor=a1a1aa&descAlignY=62" style="width: 100%; border-radius: 8px;" />
+        
+        <br/><br/>
+
+        <!-- TYPING SVG -->
+        <a id="typingLink" href="https://github.com/gbetokuon-stack" target="_blank">
+          <img id="typingSvg" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=E11D48&center=true&vCenter=true&multiline=false&width=620&height=45&lines=Full-Stack+Software+Engineer;Building+Scalable+%26+High-Performance+Systems;Passionate+about+Clean+Architecture;Always+Learning+%26+Building" alt="Typing Text" />
+        </a>
+
+        <br/><br/>
+
+        <!-- STATUS BADGES -->
+        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
+          <img src="https://img.shields.io/badge/ROLE-Full--Stack_Developer-18181b?style=for-the-badge&logo=code&logoColor=white&labelColor=09090b" />
+          <img src="https://img.shields.io/badge/STACK-TypeScript_|_Python_|_Go-18181b?style=for-the-badge&logo=codewars&logoColor=white&labelColor=09090b" />
+          <img id="viewsBadge" src="https://komarev.com/ghpvc/?username=gbetokuon-stack&style=for-the-badge&color=e11d48&label=PROFILE+VIEWS&labelColor=09090b" />
+          <img src="https://img.shields.io/badge/STATUS-Open_to_Collaborate-18181b?style=for-the-badge&logo=git&logoColor=white&labelColor=09090b" />
+        </div>
+
+        <!-- SOCIAL LINKS -->
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://www.facebook.com/profile.php?id=100004465804397" target="_blank">
+            <img src="https://img.shields.io/badge/Facebook-cuongacoustic-1877f2?style=flat-square&logo=facebook&logoColor=white" />
+          </a>
+          <a href="https://discord.com/users/cuongacoustic" target="_blank">
+            <img src="https://img.shields.io/badge/Discord-cuongacoustic-5865F2?style=flat-square&logo=discord&logoColor=white" />
+          </a>
+          <a href="mailto:your_email@gmail.com">
+            <img src="https://img.shields.io/badge/Email-Contact_Me-EA4335?style=flat-square&logo=gmail&logoColor=white" />
+          </a>
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
+            <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" />
+          </a>
+          <a href="https://t.me/YOUR_TELEGRAM" target="_blank">
+            <img src="https://img.shields.io/badge/Telegram-Chat-26A5E4?style=flat-square&logo=telegram&logoColor=white" />
+          </a>
+        </div>
+      </div>
+
+      <hr/>
+
+      <h3 style="text-align: left;">💻 HỒ SƠ LẬP TRÌNH VIÊN (ABOUT ME)</h3>
+      <pre><code><span style="color: #6a737d;">/**
+ * Developer Profile & Core Competencies
+ */</span>
+
+<span style="color: #ff7b72;">interface</span> <span style="color: #58a6ff;">Developer</span> {
+  name: <span style="color: #79c0ff;">string</span>;
+  role: <span style="color: #79c0ff;">string</span>;
+  languages: <span style="color: #79c0ff;">string[]</span>;
+  techStack: {
+    frontend: <span style="color: #79c0ff;">string[]</span>;
+    backend: <span style="color: #79c0ff;">string[]</span>;
+    database: <span style="color: #79c0ff;">string[]</span>;
+    devops: <span style="color: #79c0ff;">string[]</span>;
+  };
+  currentFocus: <span style="color: #79c0ff;">string[]</span>;
+  interests: <span style="color: #79c0ff;">string[]</span>;
+}
+
+<span style="color: #ff7b72;">const</span> developer: <span style="color: #58a6ff;">Developer</span> = {
+  name: <span style="color: #a5d6ff;">"Cường"</span>,
+  role: <span style="color: #a5d6ff;">"Full-Stack Software Engineer"</span>,
+  languages: [<span style="color: #a5d6ff;">"TypeScript"</span>, <span style="color: #a5d6ff;">"JavaScript"</span>, <span style="color: #a5d6ff;">"Python"</span>, <span style="color: #a5d6ff;">"Go"</span>, <span style="color: #a5d6ff;">"SQL"</span>],
+  techStack: {
+    frontend: [<span style="color: #a5d6ff;">"React"</span>, <span style="color: #a5d6ff;">"Next.js"</span>, <span style="color: #a5d6ff;">"Vue.js"</span>, <span style="color: #a5d6ff;">"Tailwind CSS"</span>],
+    backend: [<span style="color: #a5d6ff;">"Node.js"</span>, <span style="color: #a5d6ff;">"Express"</span>, <span style="color: #a5d6ff;">"NestJS"</span>, <span style="color: #a5d6ff;">"FastAPI"</span>],
+    database: [<span style="color: #a5d6ff;">"PostgreSQL"</span>, <span style="color: #a5d6ff;">"MongoDB"</span>, <span style="color: #a5d6ff;">"Redis"</span>],
+    devops: [<span style="color: #a5d6ff;">"Docker"</span>, <span style="color: #a5d6ff;">"Kubernetes"</span>, <span style="color: #a5d6ff;">"CI/CD"</span>, <span style="color: #a5d6ff;">"AWS"</span>]
+  },
+  currentFocus: [
+    <span style="color: #a5d6ff;">"Xây dựng hệ thống phân tán quy mô lớn & hiệu năng cao"</span>,
+    <span style="color: #a5d6ff;">"Nghiên cứu ứng dụng AI Agent & Kiến trúc tự động hóa"</span>
+  ],
+  interests: [<span style="color: #a5d6ff;">"Acoustic Music & Guitar 🎸"</span>, <span style="color: #a5d6ff;">"Coffee ☕"</span>, <span style="color: #a5d6ff;">"Tech Articles 📚"</span>]
+};</code></pre>
+
+      <hr/>
+
+      <div style="text-align: center;">
+        <h2>🏆 THÀNH TỰU GITHUB (GITHUB TROPHIES)</h2>
+        <br/>
+        <img id="trophiesImg" src="https://github-profile-trophy.vercel.app/?username=cuongacoustic&theme=darkhub&no-frame=false&no-bg=false&margin-w=4&row=1&column=7" style="max-width: 100%; border: 1px solid var(--border);" />
+      </div>
+
+      <hr/>
+
+      <div style="text-align: center;">
+        <h2>🛠️ KỸ NĂNG & CÔNG NGHỆ (SKILLS & TECHNOLOGIES)</h2>
+        <br/>
+        <h4>💻 Frontend Development</h4>
+        <p style="margin: 14px 0;">
+          <img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,vue,tailwind,sass,threejs,wasm&perline=11&theme=dark" />
+        </p>
+
+        <h4>⚙️ Backend Development</h4>
+        <p style="margin: 14px 0;">
+          <img src="https://skillicons.dev/icons?i=nodejs,express,nestjs,python,fastapi,golang,rust,java,spring,graphql&perline=10&theme=dark" />
+        </p>
+
+        <h4>🗄️ Database & Storage</h4>
+        <p style="margin: 14px 0;">
+          <img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,redis,supabase,firebase,elasticsearch,cassandra,sqlite&perline=9&theme=dark" />
+        </p>
+
+        <h4>☁️ DevOps & Cloud</h4>
+        <p style="margin: 14px 0;">
+          <img src="https://skillicons.dev/icons?i=docker,kubernetes,aws,gcp,nginx,linux,git,githubactions,terraform&perline=9&theme=dark" />
+        </p>
+      </div>
+
+      <hr/>
+
+      <div style="text-align: center;">
+        <h2>📊 THỐNG KÊ HOẠT ĐỘNG (GITHUB METRICS)</h2>
+        <br/>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <img id="statsImg" src="https://github-readme-stats.vercel.app/api?username=gbetokuon-stack&show_icons=true&theme=github_dark&hide_border=false" />
+          <img id="langsImg" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gbetokuon-stack&layout=compact&theme=github_dark&hide_border=false" />
+        </div>
+        <br/>
+        <img id="streakImg" src="https://github-readme-streak-stats.herokuapp.com/?user=gbetokuon-stack&theme=github-dark-blue&hide_border=false" style="max-width: 100%;" />
+      </div>
+
+      <hr/>
+
+      <div style="text-align: center;">
+        <h2>📈 BIỂU ĐỒ HOẠT ĐỘNG (ACTIVITY GRAPH)</h2>
+        <br/>
+        <img id="activityImg" src="https://github-readme-activity-graph.vercel.app/graph?username=gbetokuon-stack&bg_color=0d1117&color=58a6ff&line=1f6feb&point=ffffff&area=true&hide_border=false&border=30363d" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);" />
+      </div>
+
+      <hr/>
+
+      <div style="text-align: center;">
+        <h2>📊 ĐỒ HỌA ĐÓNG GÓP 3D ĐỘNG (3D ANIMATED CONTRIBUTION GRAPH)</h2>
+        <br/>
+        <img id="contrib3dImg" src="./profile-3d-contrib/profile-night-view.svg" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);" />
+      </div>
+
+      <hr/>
+
+      <h2 style="text-align: left;">🚀 DỰ ÁN TIÊU BIỂU (FEATURED PROJECTS)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dự Án</th>
+            <th>Mô Tả & Tính Năng</th>
+            <th>Công Nghệ</th>
+            <th>Trạng Thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>⚡ <b>Trading-Engine</b></td>
+            <td>Hệ thống xử lý giao dịch thời gian thực với độ trễ thấp, xử lý hàng triệu requests</td>
+            <td><code>Rust</code> <code>WebSockets</code> <code>Redis</code></td>
+            <td><img src="https://img.shields.io/badge/Active-Success?style=flat-square&color=22c55e" /></td>
+          </tr>
+          <tr>
+            <td>👁️ <b>Vision-AI-Agent</b></td>
+            <td>Hệ thống thị giác máy tính và AI Agent phát hiện bất thường qua camera thời gian thực</td>
+            <td><code>Python</code> <code>PyTorch</code> <code>FastAPI</code></td>
+            <td><img src="https://img.shields.io/badge/Active-Success?style=flat-square&color=22c55e" /></td>
+          </tr>
+          <tr>
+            <td>🔗 <b>Decentral-Chain</b></td>
+            <td>Giao thức đồng thuận và sổ cái phân tán với thuật toán mã hóa bảo mật cao</td>
+            <td><code>Solidity</code> <code>Go</code> <code>Docker</code></td>
+            <td><img src="https://img.shields.io/badge/In_Progress-Blue?style=flat-square&color=3b82f6" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr/>
+
+      <div style="text-align: center;">
+        <img src="https://capsule-render.vercel.app/api?type=waving&color=0:09090b,40:18181b,80:27272a,100:09090b&height=120&section=footer" style="width: 100%; border-radius: 8px;" />
+        <p style="margin-top: 14px; font-size: 0.88rem; color: var(--text-muted);">
+          "Talk is cheap. Show me the code." — Linus Torvalds
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Đã copy mã README.md thành công!</div>
+
+  <script>
+    function updatePreview() {
+      const u = document.getElementById('usernameInput').value.trim() || 'gbetokuon-stack';
+      
+      document.getElementById('viewsBadge').src = `https://komarev.com/ghpvc/?username=${u}&style=for-the-badge&color=e11d48&label=PROFILE+VIEWS&labelColor=09090b`;
+      document.getElementById('trophiesImg').src = `https://github-profile-trophy.vercel.app/?username=${u}&theme=darkhub&no-frame=false&no-bg=false&margin-w=4&row=1&column=7`;
+      document.getElementById('statsImg').src = `https://github-readme-stats.vercel.app/api?username=${u}&show_icons=true&theme=github_dark&hide_border=false`;
+      document.getElementById('langsImg').src = `https://github-readme-stats.vercel.app/api/top-langs/?username=${u}&layout=compact&theme=github_dark&hide_border=false`;
+      document.getElementById('streakImg').src = `https://github-readme-streak-stats.herokuapp.com/?user=${u}&theme=github-dark-blue&hide_border=false`;
+      document.getElementById('activityImg').src = `https://github-readme-activity-graph.vercel.app/graph?username=${u}&bg_color=0d1117&color=58a6ff&line=1f6feb&point=ffffff&area=true&hide_border=false&border=30363d`;
+      
+      const typingLink = document.getElementById('typingLink');
+      if (typingLink) typingLink.href = `https://github.com/${u}`;
+      
+      showToast("Đã cập nhật dữ liệu của: " + u);
+    }
+
+    async function copyMarkdown() {
+      const u = document.getElementById('usernameInput').value.trim() || 'gbetokuon-stack';
+      
+      try {
+        const res = await fetch('./README.md');
+        let text = await res.text();
+        text = text.replaceAll('gbetokuon-stack', u);
+        
+        await navigator.clipboard.writeText(text);
+        showToast("Đã copy toàn bộ mã README.md! 📋");
+      } catch (err) {
+        alert("Đã xảy ra lỗi khi sao chép tự động. Bạn hãy mở file README.md để copy nhé!");
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+  </script>
+</body>
+</html>
