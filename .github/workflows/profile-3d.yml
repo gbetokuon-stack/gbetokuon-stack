@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # Tạo ma trận đồ họa 3D Isometric từ lịch sử đóng góp GitHub
       - name: Generate 3D Contribution Matrix
