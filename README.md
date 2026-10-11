@@ -171,9 +171,9 @@ const developer: Developer = {
 
 | Dự Án | Mô Tả & Tính Năng | Công Nghệ | Trạng Thái |
 | :--- | :--- | :--- | :---: |
-| ⚡ **[Trading-Engine](https://github.com/gbetokuon-stack/trading-engine)** | Hệ thống xử lý giao dịch thời gian thực với độ trễ thấp, xử lý hàng triệu requests | `Rust` `WebSockets` `Redis` | [![Active](https://img.shields.io/badge/Active-Success?style=flat-square&color=22c55e)]() |
-| 👁️ **[Vision-AI-Agent](https://github.com/gbetokuon-stack/vision-ai-agent)** | Hệ thống thị giác máy tính và AI Agent phát hiện bất thường qua camera thời gian thực | `Python` `PyTorch` `FastAPI` | [![Active](https://img.shields.io/badge/Active-Success?style=flat-square&color=22c55e)]() |
-| 🔗 **[Decentral-Chain](https://github.com/gbetokuon-stack/decentral-chain)** | Giao thức đồng thuận và sổ cái phân tán với thuật toán mã hóa bảo mật cao | `Solidity` `Go` `Docker` | [![In Progress](https://img.shields.io/badge/In_Progress-Blue?style=flat-square&color=3b82f6)]() |
+| 🚀 **[AcousticLauncher](https://github.com/gbetokuon-stack/AcousticLauncher)** | Trình khởi chạy Minecraft tùy biến, tối ưu hóa tài nguyên và hiệu năng hệ thống | `JavaScript` `Node.js` | [![Active](https://img.shields.io/badge/Active-Success?style=flat-square&color=22c55e)]() |
+| 🛡️ **[uBlock-Plus](https://github.com/gbetokuon-stack/uBlock-Plus)** | Tiện ích chặn nội dung rác và bảo vệ quyền riêng tư tối ưu bộ nhớ cho Chromium MV3 | `JavaScript` `Extension` | [![Active](https://img.shields.io/badge/Active-Success?style=flat-square&color=22c55e)]() |
+| 🛒 **[JapanPriceAmazon](https://github.com/gbetokuon-stack/JapanPriceAmazon)** | Công cụ theo dõi biến động giá và hỗ trợ mua sắm thông minh trên Amazon Nhật Bản | `JavaScript` `Web-Tools` | [![Active](https://img.shields.io/badge/Active-Success?style=flat-square&color=22c55e)]() |
 
 ---
 
